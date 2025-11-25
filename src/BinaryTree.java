@@ -52,23 +52,45 @@ public class BinaryTree {
         return node.data;
     }
 
-    public void drawTree(Graphics g, int x, int y, TreeNode node) {
+    public void drawTree(Graphics g, int x, int y, TreeNode node, int depth) {
         if (node != null) {
             int radius = 20;
-            int xOffset = 50;
-            int yOffset = 50;
+
+            int xOffset = 200 >> depth;
+            if (xOffset < 30) xOffset = 30;
+            int yOffset = 60;
 
             g.drawOval(x - radius, y - radius, 2 * radius, 2 * radius);
             g.drawString(String.valueOf(node.data), x - 5, y + 5);
 
             if (node.left != null) {
-                g.drawLine(x, y, x - xOffset, y + yOffset);
-                drawTree(g, x - xOffset, y + yOffset, node.left);
+                int childX = x - xOffset;
+                int childY = y + yOffset;
+
+                drawLineBetweenCircles(g, x, y, childX, childY, radius);
+                drawTree(g, childX, childY, node.left, depth + 1);
             }
+
             if (node.right != null) {
-                g.drawLine(x, y, x + xOffset, y + yOffset);
-                drawTree(g, x + xOffset, y + yOffset, node.right);
+                int childX = x + xOffset;
+                int childY = y + yOffset;
+
+                drawLineBetweenCircles(g, x, y, childX, childY, radius);
+                drawTree(g, childX, childY, node.right, depth + 1);
             }
         }
     }
+    private void drawLineBetweenCircles(Graphics g, int x, int y, int childX, int childY, int radius) {
+        double dx = childX - x;
+        double dy = childY - y;
+        double dist = Math.sqrt(dx * dx + dy * dy);
+
+        int startX = (int)Math.round(x + dx * radius / dist);
+        int startY = (int)Math.round(y + dy * radius / dist);
+        int endX   = (int)Math.round(childX - dx * radius / dist);
+        int endY   = (int)Math.round(childY - dy * radius / dist);
+
+        g.drawLine(startX, startY, endX, endY);
+    }
+
 }
