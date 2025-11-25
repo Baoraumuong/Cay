@@ -19,7 +19,7 @@ public class Visualise extends JFrame {
         treePanel = new JPanel() {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                binaryTree.drawTree(g, getWidth() / 2, 40, binaryTree.getRoot());
+                binaryTree.drawTree(g, getWidth() / 2, 40, binaryTree.getRoot(), 0);
             }
         };
 
