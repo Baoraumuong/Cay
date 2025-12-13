@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <SplitPane dividerPositions="0.5345982142857143" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+            <AnchorPane>
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="33.0" prefWidth="316.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <Label alignment="TOP_CENTER" contentDisplay="CENTER" styleClass="title" stylesheets="@../menu/style.css" text="Tree" textAlignment="CENTER" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <ScrollPane fitToWidth="true">
+               <content>
+                  <VBox alignment="TOP_CENTER" prefHeight="44.0" prefWidth="83.0" styleClass="title" stylesheets="@../menu/style.css">
+                     <children>
+                        <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Code " textAlignment="CENTER">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+        </items>
+      </SplitPane>
+   </center>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <bottom>
+      <HBox prefHeight="0.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" styleClass="sexy-button" stylesheets="@../menu/style.css" text="Pause" />
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" styleClass="sexy-button" stylesheets="@../menu/style.css" text="Undo" />
+            <Button layoutX="57.0" layoutY="10.0" mnemonicParsing="false" styleClass="sexy-button" stylesheets="@../menu/style.css" text="Redo" />
+            <Button layoutX="62.0" layoutY="10.0" mnemonicParsing="false" styleClass="sexy-button" stylesheets="@../menu/style.css" text="Step back" />
+            <Button layoutX="114.0" layoutY="10.0" mnemonicParsing="false" styleClass="sexy-button" stylesheets="@../menu/style.css" text="Step forward" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
